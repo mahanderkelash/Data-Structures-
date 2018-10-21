@@ -38,6 +38,22 @@ namespace Singly_Linked_List
             }
         }
 
+        public void  SearchItem(int i)
+        {
+            if(Data == i)
+            {
+                Console.Write("Exist");
+            }
+            else if(Next == null)
+            {
+                Console.Write("Doest not exist");
+            }
+            else
+            {
+                Next.SearchItem(i);
+            }
+        }
+
         public void AddSorted(int i)
         {
             if (Next == null)
@@ -53,6 +69,25 @@ namespace Singly_Linked_List
             else
             {
                 Next.AddSorted(i);
+            }
+        }
+
+        public void DeleteItem(int i)
+        {
+            if(Data == i )
+            {
+                
+                this.Data = Next.Data;
+                this.Next = Next.Next;
+            
+            }
+            else if(Next == null)
+            {
+                Console.Write("No item Found");
+            }
+            else
+            {
+                Next.DeleteItem(i);
             }
         }
 
@@ -109,6 +144,21 @@ namespace Singly_Linked_List
             }
 
         }
+        public void SearchItem(int i)
+        {
+            if(HeadNode==null)
+            {
+                Console.Write("\n Does not exist");
+            }
+            else if(HeadNode.Data == i)
+            {
+                Console.Write("\n Exist");
+            }
+            else
+            {
+                HeadNode.Next.SearchItem(i);
+            }
+        }
 
         public void print()
         {
@@ -118,6 +168,28 @@ namespace Singly_Linked_List
             }
         }
 
+        public void Delete(int i)
+        {
+            if(HeadNode.Data == i)
+            {
+                if (HeadNode.Next == null)
+                {
+                    HeadNode = null; 
+                }
+                else
+                {
+                    HeadNode = HeadNode.Next;
+                }
+            }
+
+            else
+            {
+                HeadNode.Next.DeleteItem(i);
+            }
+
+            
+
+        }
 
     }
 
@@ -131,7 +203,12 @@ namespace Singly_Linked_List
             List.AddToEnd(6);
             List.AddSorted(5);
 
+            List.Delete(5);
+           
+
             List.print();
+
+            List.SearchItem(5);
 
             Console.ReadLine();
 
