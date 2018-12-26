@@ -33,7 +33,7 @@ namespace Bubble_Sort_Algorithm
             }
             Console.WriteLine("your sorted array \n");
 
-            for(int i =0;i<5;i++)
+            for (int i = 0; i < 5; i++)
             {
                 Console.Write(arr[i]);
             }
